@@ -1,8 +1,9 @@
 import pyspark.sql.functions as F
 from pyspark.ml.feature import Bucketizer
+from pyspark.sql.types import IntegerType, LongType, FloatType, DoubleType, DecimalType
 
 
-def calc(df, column, bins=30, binwidth=None):
+def calc(df, column: str, bins=30, bin_width=None):
     """
     Calculate the buckets and weights for a histogram
 
@@ -10,20 +11,27 @@ def calc(df, column, bins=30, binwidth=None):
     -------
         (buckets, weights): tuple of two lists
     """
-
-    if bins is None and binwidth is None:
-        raise ValueError("Must indicate bins or binwidth")
-    elif bins is None and binwidth is not None:
-        raise ValueError("bins and binwidth arguments are mutually exclusive")
+    if bins is None and bin_width is None:
+        raise ValueError("Must indicate bins or bin_width")
+    elif bins is None and bin_width is not None:
+        raise ValueError("bins and bin_width arguments are mutually exclusive")
 
     # Calculate buckets
     col_df = df[[column]]
+
+    int_types = (IntegerType, LongType, FloatType, DoubleType, DecimalType)
+    col_type = col_df.schema.fields[0].dataType
+    if not isinstance(col_type, int_types):
+        raise ValueError(
+            "hist method requires numerical or datetime columns, nothing to plot."
+        )
+
     limits = col_df.agg(F.min(column), F.max(column)).collect()
     min_, max_ = limits[0][0], limits[0][1]
 
-    if binwidth is None:
-        binwidth = (max_ - min_) / (bins)
-    buckets = [min_ + i * binwidth for i in range(bins + 1)]
+    if bin_width is None:
+        bin_width = (max_ - min_) / (bins)
+    buckets = [min_ + i * bin_width for i in range(bins + 1)]
 
     # Calculate counts based on the buckets
     bucketizer = Bucketizer(splits=buckets, inputCol=column, outputCol="bucket")

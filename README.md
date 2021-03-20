@@ -4,8 +4,13 @@
 [![Testing](https://github.com/danielfrg/spark-plot/workflows/test/badge.svg)](https://github.com/danielfrg/spark-plot/actions)
 [![License](https://img.shields.io/:license-Apache%202-blue.svg)](https://github.com/danielfrg/spark-plot/blob/master/LICENSE.txt)
 
-Simplifies plotting Spark DataFrames by make calculations for plots in Spark.
-Supports (soon) multiple Python plotting frontends
+- Simplifies plotting Spark DataFrames by making calculations for plots inside Spark
+- Plot types: Histogram
+- Generates Matplotlib plots with a similar [Pandas Plotting API](https://pandas.pydata.org/docs/user_guide/visualization.html)
+
+TODO:
+- Raster plots (2D Histograms)
+- Supports multiple Python plotting frontends (Altair, Plotly and more)
 
 ## Installation
 
@@ -27,13 +32,7 @@ flights = spark.createDataFrame(flights_pd)
 
 from spark_plot import mpl
 
-fig = plt.figure()
-
-# spark-plot code
 mpl.hist(flights, "distance", color="#474747")
-
-plt.title("Distance")
-plt.show()
 ```
 
 ![Flights Histogram](https://github.com/danielfrg/spark-plot/raw/main/docs/flights_hist.png "Flights Distance Histogram")
