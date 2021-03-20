@@ -18,7 +18,7 @@ pip install spark-plot
 A simple example using Matplotlib
 
 ```python
-## Create an Spark DataFrame
+# Create an Spark DataFrame
 from nycflights13 import flights as flights_pd
 
 flights = spark.createDataFrame(flights_pd)
