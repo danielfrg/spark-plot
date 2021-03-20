@@ -1,1 +1,3 @@
 # These are the library requirements
+pyspark
+matplotlib

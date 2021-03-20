@@ -1,6 +1,10 @@
 # Used for CI - It should match environment.yml
+pyspark
+matplotlib
 
-# Base conda deps
+# This project pip deps
+
+# Development conda deps
 setuptools
 setuptools-scm
 pylint
@@ -12,7 +16,7 @@ wheel
 pytest
 pytest-cov
 
-# This project conda deps
+# Other development deps
 
 # Base pip deps: Docs
 mkdocs
@@ -21,4 +25,4 @@ mkdocs-minify-plugin
 pygments
 pymdown-extensions
 
-# This project pip deps
+# Development docs deps
