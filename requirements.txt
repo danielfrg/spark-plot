@@ -1,3 +1,4 @@
 # These are the library requirements
 pyspark
+pandas
 matplotlib
