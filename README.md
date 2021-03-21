@@ -5,11 +5,11 @@
 [![License](https://img.shields.io/:license-Apache%202-blue.svg)](https://github.com/danielfrg/spark-plot/blob/master/LICENSE.txt)
 
 - Simplifies plotting Spark DataFrames by making calculations for plots inside Spark
-- Plot types: Histogram
+- Plot types: Histogram, 2D Histogram
 - Generates Matplotlib plots with a similar [Pandas Plotting API](https://pandas.pydata.org/docs/user_guide/visualization.html)
 
 TODO:
-- Raster plots (2D Histograms)
+- Other plot types
 - Supports multiple Python plotting frontends (Altair, Plotly and more)
 
 ## Installation
