@@ -5,7 +5,7 @@ dependencies:
   - python=3.8
   - pip
 
-  # Development conda deps
+  # Dev tools
   - setuptools
   - setuptools_scm
   - pylint
@@ -14,24 +14,18 @@ dependencies:
   - isort
   - twine
   - wheel
+
+  # Testing
   - pytest
   - pytest-cov
 
-  # Other development conda deps
-  - jupyterlab
-
   - pip:
-    # This project deps
+    # Package deps
     - pyspark
     - pyarrow
     - matplotlib
 
-    # Other development deps
+    # Examples
+    - jupyterlab
     - nycflights13
 
-    # Development docs deps
-    - mkdocs
-    - mkdocs-material
-    - mkdocs-minify-plugin
-    - pygments
-    - pymdown-extensions

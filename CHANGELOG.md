@@ -1,5 +1,5 @@
 # spark-plot Change Log
 
-## [Unreleased]
+## Unreleased
 
-- 
+-

@@ -1,16 +1,15 @@
 # Contributing
 
-## Dev environment
+## Development environment
 
-The development is based on conda on the `environment.yml` file.
-To createand activate the environment:
+Create Python env
 
 ```
 make env
-conda activate mkdocs-jupyter
+conda activate spark-plot
 ```
 
-After that install the package in editable mode using:
+Install package for developmentt
 
 ```
 make develop
@@ -18,11 +17,15 @@ make develop
 
 ## Testing
 
+Run tests
+
 ```
-# Check linting and format
+make test
+```
+
+Check linting and format
+
+```
 make check
 make fmt
-
-# Run tests
-make test
 ```
