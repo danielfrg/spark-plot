@@ -15,9 +15,7 @@ Install package for developmentt
 make develop
 ```
 
-## Testing
-
-Run tests
+## Tests
 
 ```
 make test
