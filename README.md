@@ -2,7 +2,7 @@
 
 [![pypi](https://badge.fury.io/py/spark-plot.svg)](https://pypi.org/project/spark-plot/)
 [![build](https://github.com/danielfrg/spark-plot/workflows/test/badge.svg)](https://github.com/danielfrg/spark-plot/actions)
-[![license](https://img.shields.io/:license-Apache%202-blue.svg)](https://github.com/danielfrg/spark-plot/blob/master/LICENSE.txt)
+[![license](https://img.shields.io/:license-Apache%202-blue.svg)](https://github.com/danielfrg/spark-plot/blob/main/LICENSE.txt)
 
 - Simplifies plotting Spark DataFrames by making calculations for plots inside Spark
 - Plot types: Histogram, 2D Histogram
