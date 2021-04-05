@@ -1,9 +1,37 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from pandas.plotting._matplotlib import tools as pd_mpl_tools
+import pyspark.sql.functions as F
 
+from . import bar as bar_
 from . import hist as hist_
 from . import hist2d as hist2d_
+
+
+def bar(
+    df,
+    x,
+    y=None,
+    agg=F.count,
+    # alias=None,
+    sort_by=None,
+    sort_asc=False,
+    sort_desc=True,
+    **kwargs,
+):
+    pandas_df = bar_.calc(
+        df,
+        x=x,
+        y=y,
+        agg=agg,
+        # alias=alias,
+        sort_by=sort_by,
+        sort_asc=sort_asc,
+        sort_desc=sort_desc,
+    )
+
+    ax = pandas_df.plot.bar(**kwargs)
+    return ax
 
 
 def hist(

@@ -20,7 +20,7 @@ pip install spark-plot
 
 ## Usage
 
-Look at the NYCFlights [example notebook](https://nbviewer.extrapolations.dev/nb/raw.githubusercontent.com/danielfrg/spark-plot/main/notebooks/nycflights.ipynb).
+**Look at the full** [NYCFlights example notebook](https://nbviewer.extrapolations.dev/nb/raw.githubusercontent.com/danielfrg/spark-plot/main/notebooks/nycflights.ipynb). A short summary is presented below.
 
 Create an Spark DataFrame:
 
@@ -61,3 +61,35 @@ ax = mpl.hist2d(flights, col_x="sched_dep_time", col_y="sched_arr_time", title="
 ```
 
 ![Flights Histogram 2d](https://github.com/danielfrg/spark-plot/raw/main/docs/flights_hist2d.png "Flights Scheduled 2D Histogram")
+
+### Bar plot
+
+```python
+mpl.bar(flights, x="origin")
+```
+
+![Flights Bar Plot](https://github.com/danielfrg/spark-plot/raw/main/docs/flights_bar_origin.png)
+
+#### Aggregate Functions
+
+Use any Spark aggregate function
+
+```python
+import pyspark.sql.functions as F
+
+mpl.bar(flights, x="origin", y="dep_delay", agg=F.mean)
+```
+
+![Flights Bar Plot Mean Delay](https://github.com/danielfrg/spark-plot/raw/main/docs/flights_bar_origin_depdelay.png)
+
+#### Multiple columns
+
+Pass multiple columns.
+
+```python
+import pyspark.sql.functions as F
+
+ax = mpl.bar(flights, x="origin", y=["dep_delay", "arr_delay"], agg=F.sum)
+```
+
+![Flights Bar Plot Sum delays](https://github.com/danielfrg/spark-plot/raw/main/docs/flights_bar_origin_sum_delays.png)
